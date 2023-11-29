@@ -1,4 +1,7 @@
+"""module defnes function that generates
+pascal's triangle integer"""
 from math import factorial
+
 
 def pascal_triangle(n):
    """generates intergers for pascal's triangle"""
