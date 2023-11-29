@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """module defnes function that generates
 pascal's triangle integer"""
 from math import factorial
