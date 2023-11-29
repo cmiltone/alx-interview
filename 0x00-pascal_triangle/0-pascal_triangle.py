@@ -2,6 +2,7 @@
 """module defnes function that generates
 pascal's triangle integer"""
 
+
 def factorial(n):
     fact = 1
 
@@ -9,6 +10,7 @@ def factorial(n):
         fact = fact * i
 
     return fact
+
 
 def pascal_triangle(n):
     """generates intergers for pascal's triangle"""
