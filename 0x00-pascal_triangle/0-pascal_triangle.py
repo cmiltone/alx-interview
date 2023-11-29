@@ -7,7 +7,6 @@ def pascal_triangle(n):
     """generates intergers for pascal's triangle"""
 
     arr = []
-    n = 5
     for i in range(n):
         arr.append([])
         for j in range(i+1):
