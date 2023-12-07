@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 module to declare function that determines if all lock boxes can be opened
 """
@@ -17,6 +18,6 @@ def canUnlockAll(boxes):
             tmp_boxes = tmp_boxes.union(boxes[i])
             current_boxes.add(i)
 
-    if len(boxes) == len(current_boxes):
+    if len(current_boxes) == len(boxes):
         return True
     return False
