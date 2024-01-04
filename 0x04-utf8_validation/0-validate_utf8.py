@@ -20,6 +20,7 @@ def validUTF8(data):
     for i in range(num_arr):
         if _continue > 0:
             _continue -= 1
+
             continue
         if type(data[i]) != int or data[i] < 0 or data[i] > 0x10ffff:
             return False
@@ -27,18 +28,7 @@ def validUTF8(data):
             _continue = 0
         elif data[i] & 0b11111000 == 0b11110000:
             tab = 4
-            if num_arr - i >= tab:
-                n = list(map(
-                    lambda x: x & 0b11000000 == 0b10000000,
-                    data[i + 1: i + tab],
-                ))
-                if not all(n):
-                    return False
-                _continue = tab - 1
-            else:
-                return False
-        elif data[i] & 0b11110000 == 0b11100000:
-            tab = 3
+
             if num_arr - i >= tab:
                 n = list(map(
                     lambda x: x & 0b11000000 == 0b10000000,
@@ -50,8 +40,24 @@ def validUTF8(data):
                 _continue = tab - 1
             else:
                 return False
+        elif data[i] & 0b11110000 == 0b11100000:
+            tab = 3
+
+            if num_arr - i >= tab:
+                n = list(map(
+                    lambda x: x & 0b11000000 == 0b10000000,
+                    data[i + 1: i + tab],
+                ))
+
+                if not all(n):
+                    return False
+
+                _continue = tab - 1
+            else:
+                return False
         elif data[i] & 0b11100000 == 0b11000000:
             tab = 2
+
             if tab <= num_arr - i:
                 n = list(map(
                     lambda x: x & 0b11000000 == 0b10000000,
