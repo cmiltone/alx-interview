@@ -58,10 +58,10 @@ def build_arr(row, col):
     else:
         for l in range(n):
             a = (row * n) + l
-            matches = zip(list([pos[a]]) * len(col), col)
-            used_positions = map(lambda x: is_attacking(x[0], x[1]), matches)
+            exists = zip(list([pos[a]]) * len(col), col)
+            k = map(lambda x: is_attacking(x[0], x[1]), exists)
             col.append(pos[a].copy())
-            if not any(used_positions):
+            if not any(k):
                 build_arr(row + 1, col)
             col.pop(len(col) - 1)
 
