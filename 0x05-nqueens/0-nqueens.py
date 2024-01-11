@@ -27,7 +27,8 @@ def parse_args():
 
 
 def is_attacking(p0, p1):
-    """returns True if the positions of two queens are in an attacking mode, or False otherwise"""
+    """returns True if the positions of two queens are in an attacking mode,
+    or False otherwise"""
     if (p0[0] == p1[0]) or (p0[1] == p1[1]):
         return True
     return abs(p0[0] - p1[0]) == abs(p0[1] - p1[1])
@@ -56,8 +57,8 @@ def build_arr(row, col):
         if not col_exists(current_col):
             arrs.append(current_col)
     else:
-        for l in range(n):
-            a = (row * n) + l
+        for lc in range(n):
+            a = (row * n) + lc
             exists = zip(list([pos[a]]) * len(col), col)
             k = map(lambda x: is_attacking(x[0], x[1]), exists)
             col.append(pos[a].copy())
